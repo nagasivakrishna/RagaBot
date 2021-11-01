@@ -1,0 +1,14 @@
+print("[LOG] This song does not exist in the DB")
+        await ctx.send("This is a song I do not know. Hold on let me do the dirty work.")
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+          try:
+            ydl.download([url])
+            print("\n[YDL-1] ydl download complete with ydl1")
+          except:
+            await ctx.send("Unable to process, probably age restricted.")
+            print("[ERROR] Age ristricted video, returning 0 status")
+            return
+        for file in os.listdir("./"):
+          if file.endswith(".mp3"):
+            os.rename(file, f"./FILES/{url[24:]}.mp3")
+        print(f"[LOG] Song is successfully added to DB with name {url}.mp3")
