@@ -14,7 +14,7 @@ from youtube_search import YoutubeSearch
 from keep_alive import keep_alive
 from downloading import Parallel_Download
 
-my_secret = os.environ['TOKEN']
+# my_secret = os.environ['TOKEN']
 
 client = commands.Bot(command_prefix="!!")
 print("[LOG] Dependencies are installed")
@@ -211,6 +211,6 @@ async def reset(ctx):
 keep_alive()
 try:
   print("[LOG] running the client")
-  client.run(my_secret)
+  client.run(process.env.TOKEN)
 except:
   print("[LOG] Error occured - http 429")
